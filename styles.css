@@ -1,0 +1,343 @@
+:root {
+  /* Colors */
+  --color-text-primary: rgb(30, 28, 28);
+  --color-text-secondary: rgb(72, 72, 72);
+  --color-muted: rgb(92, 91, 91);
+  --color-disabled: rgb(122, 121, 121);
+  --color-background-light: rgb(243, 243, 243);
+  --color-background-soft: rgb(229, 229, 229);
+  --color-background-softer: rgb(185, 184, 184);
+  --color-button-primary: rgb(24, 98, 246);
+  --color-button-primary-hover: rgb(21, 81, 202);
+  --color-white: #fff;
+  --color-success: green;
+  --color-stripe: rgb(30, 28, 28);
+  --color-card-shadow: rgba(0, 0, 0, 0.2);
+
+  /* Font Sizes */
+  --font-xs: 0.5rem;
+  --font-sm: 0.7rem;
+  --font-md: 0.75rem;
+  --font-base: 0.9rem;
+  --font-lg: 1rem;
+  --font-xl: 1.1rem;
+
+  /* Radius */
+  --radius-small: 4px;
+  --radius-base: 8px;
+  --radius-large: 12px;
+
+  /* Spacing */
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 25px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bank-card-section {
+  max-width: 320px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+#title {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+  text-align: center;
+}
+
+#subtitle {
+  color: var(--color-text-secondary);
+  text-align: center;
+}
+
+.card-container {
+  width: 320px;
+  height: 202px;
+  perspective: 1000px;
+  cursor: pointer;
+  color: var(--color-white);
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s ease;
+  transform-style: preserve-3d;
+}
+
+.card-container:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card {
+  background-image: url("images/Shiny Overlay.svg");
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-large);
+  backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: 0 10px 20px var(--color-card-shadow);
+}
+
+.numeral {
+  font-family: "Roboto Mono", "Consolas", "Courier New", monospace;
+  letter-spacing: 0.1em;
+}
+
+.hide {
+  visibility: hidden;
+  width: 0;
+}
+
+.card.card-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  z-index: 2;
+}
+
+.card.card-front > * {
+  width: 100%;
+}
+
+.bank-name {
+  text-transform: uppercase;
+  font-weight: bolder;
+  font-size: var(--font-lg);
+}
+
+.card-chip-and-hologram {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-chip {
+  height: 45px;
+}
+
+.card-hologram {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e6e6e6, #cfcfcf, #a6a6a6, #cfcfcf, #e6e6e6);
+}
+
+.card-number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-lg);
+}
+
+.card-validity {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-validity .label {
+  text-transform: uppercase;
+  font-size: var(--font-xs);
+  font-weight: bolder;
+}
+
+.cardholder-name {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.network-logo {
+  width: 28px !important;
+  background-color: var(--color-background-light);
+  border-radius: var(--radius-small);
+  color: rgba(0, 198, 255, 1);
+  font-size: var(--font-xs);
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+  font-weight: bolder;
+  padding: var(--spacing-xs);
+  position: absolute;
+  bottom: 25px;
+  right: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card.card-back {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: var(--font-sm);
+  justify-content: space-between;
+  transform: rotateY(180deg);
+}
+
+.card-support {
+  font-size: var(--font-sm);
+}
+
+.magnetic-stripe {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background-color: var(--color-stripe);
+  left: 0;
+  top: 40px;
+}
+
+.card-back-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-signature-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 13px;
+}
+
+.signature-box {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-disabled);
+  background-color: var(--color-white);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-small);
+  font-size: var(--font-md);
+  width: 80%;
+}
+
+.signature-box label {
+  font-style: italic;
+}
+
+.signature-box input {
+  background: none;
+  border: none;
+  width: 30%;
+}
+
+.cvv-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text-primary);
+  background-color: var(--color-white);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-small);
+  width: 20%;
+}
+
+.card-back .network-logo {
+  background-color: rgba(243, 243, 243, 0.642);
+}
+
+.card-details-table {
+  width: 100%;
+  background-color: var(--color-white);
+  box-shadow: 0 10px 20px var(--color-card-shadow);
+  border-radius: var(--radius-large);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  color: var(--color-text-primary);
+  gap: var(--spacing-md);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-details-table:hover {
+  transform: translateY(-5px);
+}
+
+.card-details-table tbody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.card-details-table tbody tr {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-base);
+}
+
+.card-details-table tbody tr td.label {
+  color: var(--color-muted);
+}
+
+.card-details-table tbody tr.status td.value {
+  color: var(--color-success);
+}
+
+.card-action-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.action-btn {
+  border-radius: var(--radius-base);
+  font-size: var(--font-base);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: var(--spacing-sm);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-btn .material-symbols-outlined {
+  font-size: var(--font-xl);
+}
+
+.freeze-btn {
+  background-color: var(--color-button-primary);
+  color: var(--color-white);
+}
+
+.freeze-btn:hover {
+  background-color: var(--color-button-primary-hover);
+}
+
+.settings-btn {
+  background-color: var(--color-background-soft);
+  color: var(--color-text-primary);
+}
+
+.settings-btn:hover {
+  background-color: var(--color-background-softer);
+}

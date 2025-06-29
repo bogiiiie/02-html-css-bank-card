@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Interactive virtual bank card UI built with HTML and CSS." />
+    <meta name="keywords" content="HTML, CSS, Bank Card, Virtual Card, AMEX, Visa" />
+    <meta name="author" content="Stephen William G. De Jesus" />
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Virtual Bank Card</title>
+</head>
+
+<body>
+    <main>
+        <section class="bank-card-section" aria-label="Virtual bank card">
+            <hgroup>
+                <h1 id="title">Virtual Card</h1>
+                <p id="subtitle">Tap to flip the card</p>
+            </hgroup>
+            
+            <div class="card-container">
+                <div class="card-inner">
+                    <section class="card card-front" aria-label="Front side of virtual bank card">
+                        <header class="bank-name" aria-label="Bank name">Virtual Bank</header>
+
+                        <div class="card-chip-and-hologram" aria-hidden="true">
+                            <img src="images/chip.png" alt="EMV chip" class="card-chip" />
+                            <span class="card-hologram" aria-hidden="true"></span>
+                        </div>
+
+                        <div class="card-number numeral" aria-label="Card number">
+                            <span>4532</span>
+                            <span>1234</span>
+                            <span>5678</span>
+                            <span>9012</span>
+                        </div>
+
+                        <div class="card-validity" aria-label="Card expiration date">
+                            <span class="label">Valid Thru</span>
+                            <span class="expiry-date numeral">01/25</span>
+                        </div>
+
+                        <div class="cardholder-name" aria-label="Cardholder name">
+                            Stephen De Jesus
+                        </div>
+
+                        <div class="network-logo">
+                            <span>VISA</span>
+                        </div>
+                    </section>
+
+                    <section class="card card-back" aria-label="Back side of virtual bank card">
+                        <p class="card-support" aria-label="Customer support contact">
+                            For customer support call <strong>1-800-BANK-HELP</strong>
+                        </p>
+
+                        <div class="magnetic-stripe"></div>
+
+                        <div class="card-back-content">
+                            <div class="card-signature-section" aria-label="Authorized signature and CVV">
+                                <div class="signature-box">
+                                    <label for="signature">Authorized Signature</label>
+                                    <input id="signature" class="signature-strip"></input>
+                                </div>
+                                <div class="cvv-box">
+                                    <label for="cvv" class="hide">CVV</label>
+                                    <div id="cvv" class="cvv-code numeral" aria-label="CVV code">123</div>
+                                </div>
+                            </div>
+
+                            <p class="card-terms" aria-label="Terms and conditions">
+                                This card is property of Bank Name and must be returned upon request. Use of this card
+                                constitutes
+                                acceptance of the cardholder agreement. Report<br> lost or stolen cards immediately.
+                            </p>
+
+
+                            <div class="network-logo">
+                                <span>VISA</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+            <table class="card-details-table" aria-label="Bank card details table">
+                <thead>
+                    <tr>
+                        <th scope="col">Card Information</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="card-type">
+                        <td scope="row" class="label">Card Type</td>
+                        <td class="value">American Express</td>
+                    </tr>
+                    <tr class="status">
+                        <td scope="row" class="label">Status</td>
+                        <td class="value">Active</td>
+                    </tr>
+                    <tr class="limit">
+                        <td scope="row" class="label">Credit Limit</td>
+                        <td class="value">$10,000</td>
+                    </tr>
+                    <tr class="balance">
+                        <td scope="row" class="label">Available Balance</td>
+                        <td class="value">$8,700</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="card-action-buttons" role="group" aria-label="Card actions">
+                <button type="button" class="action-btn freeze-btn" id="freeze-card-btn"
+                    aria-label="Freeze your card temporarily">
+                    <span class="material-symbols-outlined" aria-hidden="true">lock</span>
+                    <span class="btn-text">Freeze Card</span>
+                </button>
+
+                <button type="button" class="action-btn settings-btn" id="card-settings-btn"
+                    aria-label="Open card settings">
+                    <span class="material-symbols-outlined" aria-hidden="true">settings</span>
+                    <span class="btn-text">Card Settings</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
