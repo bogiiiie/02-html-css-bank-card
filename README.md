@@ -10,7 +10,7 @@ Designed by **Stephen William G. De Jesus**, this component features a realistic
 ---
 
 ## 🌐 Live Demo
-[View Live Demo](https://bogiiiie.github.io/virtual-bank-card/)
+[View Live Demo](https://bogiiiie.github.io/02-html-css-bank-card/)
 
 ---
 
